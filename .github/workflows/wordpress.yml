@@ -1,0 +1,27 @@
+name: WordPress CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install --working-dir wordpress
+        
+      - name: Run WordPress tests
+        run: phpunit --configuration wordpress/phpunit.xml
+
+      - name: Run PHPCS
+        run: vendor/bin/phpcs --standard=WordPress ./Wordppress-blog_app
+
+      - name: Deploy to WordPress
+        run: rsync -avz --delete ./ mywordpresssite:/path/to/wp-content/themes/my-theme
