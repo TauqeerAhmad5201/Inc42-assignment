@@ -1,4 +1,4 @@
-name: Go CI
+name: Go CI/CD
 
 on:
   push:
@@ -21,6 +21,9 @@ jobs:
 
       - name: Build Go app
         run: go build
+
+      - name: Run GolangCI-Lint
+        run: golangci-lint run
 
       - name: Run tests
         run: go test
