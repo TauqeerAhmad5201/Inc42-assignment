@@ -1,0 +1,21 @@
+name: WordPress CI
+
+on:
+  push:
+    branches:
+      - main
+      - feature/*
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: composer install --working-dir wordpress
+        
+      - name: Run WordPress tests
+        run: phpunit --configuration wordpress/phpunit.xml
