@@ -1,0 +1,5 @@
+# .dockerignore for Next.js project
+.git
+.idea
+.vscode
+node_modules
