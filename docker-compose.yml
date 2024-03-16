@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  go-app:
+    build:
+      context: ./Go-Order-Food
+      dockerfile: Dockerfile
+    ports:
+      - '8080:8080'
+
+  next-app:
+    build:
+      context: ./Nextjs-MySocials
+      dockerfile: Dockerfile
+    ports:
+      - '3000:3000'
+
+  wordpress:
+    build:
+      context: ./Wordppress-blog_app
+      dockerfile: Dockerfile
+    ports:
+      - '80:80'
