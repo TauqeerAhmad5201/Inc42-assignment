@@ -19,3 +19,6 @@ jobs:
         
       - name: Run WordPress tests
         run: phpunit --configuration wordpress/phpunit.xml
+
+      - name: Deploy to WordPress
+        run: rsync -avz --delete ./ mywordpresssite:/path/to/wp-content/themes/my-theme

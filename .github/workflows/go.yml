@@ -24,3 +24,11 @@ jobs:
 
       - name: Run tests
         run: go test
+        
+deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        run: rsync -avz --delete ./go tauqeerahmad5201.github.io/my-go-app   
