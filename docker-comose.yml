@@ -10,14 +10,14 @@ services:
 
   next-app:
     build:
-      context: ./path/to/nextjs-project
+      context: ./Nextjs-MySocials/Dockerfile
       dockerfile: Dockerfile
     ports:
       - '3000:3000'
 
   wordpress:
     build:
-      context: ./path/to/wordpress-project
+      context: ./Wordppress-blog_app/Dockerfile
       dockerfile: Dockerfile
     ports:
       - '80:80'
